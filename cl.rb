@@ -8,10 +8,12 @@ commits_with_messages = `git log --log-size --format='%H%n%b' --grep '^cl:'`
 deindenters = []
 
 last_tag = nil
+last_lists = []
+lists = {}
 
 tags.each do |tag|
-  indent_level = 0
-  puts tag
+  lists[tag] = {}
+  current_list = lists[tag]['root'] = []
   rev_spec = last_tag ? "#{last_tag}..#{tag}" : "#{tag}"
   revs = `git rev-list --topo-order --parents #{rev_spec}`.split("\n")
   revs.each do |rev|
@@ -19,15 +21,30 @@ tags.each do |tag|
     commit = commits[0]
     parents = commits[1..-1]
     if commit == deindenters.last
-      indent_level -= 1
       deindenters.pop
+      current_list = last_lists.pop
     end
-    puts "#{'  ' * indent_level}- #{commit}"
+    current_list << commit
     if parents.length > 1
       deindenters << parents[0]
-      indent_level += 1
+      last_lists << current_list
+      current_list = lists[tag][commit] = []
     end
   end
   last_tag = tag
+end
+
+def print_lists(lists_for_tag, commit, indent = 0)
+  lists_for_tag[commit].reverse.each do |c|
+    puts "#{'  ' * indent} - #{c}"
+    if lists_for_tag[c]
+      print_lists(lists_for_tag, c, indent + 1)
+    end
+  end
+end
+
+tags.reverse.each do |tag|
+  puts tag
+  print_lists(lists[tag], 'root')
   puts
 end
