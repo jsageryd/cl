@@ -1,13 +1,3 @@
-# CL
-Generates change log from version tags (vX.Y.Z) and lines beginning with "cl: "
-in commit messages.
-
-## Usage example
-Right before release of v1.0:
-
-    ./cl.rb v1.0 > CHANGES.md
-
-## Licence
 Copyright (c) 2015 Johan Sageryd <j@1616.se>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
