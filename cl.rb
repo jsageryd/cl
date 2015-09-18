@@ -31,7 +31,7 @@ end
 
 project = project_name
 
-next_version = ARGV.shift
+next_version = ARGV.shift || 'Next'
 
 def commit_changelog_messages
   log = 'git log --log-size --format="%H%n%b" --grep "^cl:"'
