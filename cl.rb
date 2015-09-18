@@ -97,7 +97,7 @@ end
 
 puts "# #{project} change log"
 tags.reverse.each do |tag|
-  puts tag == 'HEAD' ? "# #{next_version}" : "# #{tag}"
+  puts tag == 'HEAD' ? "## #{next_version}" : "## #{tag}"
   print_lists(lists[tag], 'root')
   puts
 end
