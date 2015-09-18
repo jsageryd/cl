@@ -7,6 +7,10 @@ Right before release of v1.0:
 
     ./cl.rb v1.0 > CHANGES.md
 
+## Acknowledgements
+* Albert Arvidsson <albert.arvidsson@gmail.com> for giving me the idea
+* Markus Läll <markus.l2ll@gmail.com> for providing valuable input
+
 ## Licence
 Copyright (c) 2015 Johan Sageryd <j@1616.se>
 
