@@ -1,6 +1,6 @@
 # CL
 Generates change log from version tags (vX.Y.Z) and lines beginning with "cl: "
-in commit messages.
+in commit messages. This is a hack, pending proper implementation.
 
 ## Usage example
 Right before release of v1.0:
