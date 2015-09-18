@@ -87,7 +87,7 @@ end
 def print_lists(lists_for_tag, commit, indent = 0)
   lists_for_tag[commit].reverse.each do |c|
     if CL_MESSAGES.has_key?(c)
-      puts "#{'  ' * indent} - #{CL_MESSAGES[c]}"
+      puts "#{'  ' * indent}- #{CL_MESSAGES[c]}"
     end
     if lists_for_tag[c]
       print_lists(lists_for_tag, c, indent + 1)
