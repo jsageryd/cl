@@ -96,8 +96,8 @@ def print_lists(lists_for_tag, commit, indent = 0)
 end
 
 puts "# #{project} change log"
-tags.reverse.each do |tag|
+tags.reverse.each_with_index do |tag, index|
   puts tag == 'HEAD' ? "## #{next_version}" : "## #{tag}"
   print_lists(lists[tag], 'root')
-  puts
+  puts unless index >= tags.length - 1
 end
