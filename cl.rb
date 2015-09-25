@@ -97,7 +97,8 @@ end
 
 puts "# #{project} change log"
 tags.reverse.each_with_index do |tag, index|
+  next unless lists[tag]['root'].any? { |l| CL_MESSAGES.has_key?(l) }
+  puts unless index == 0
   puts tag == 'HEAD' ? "## #{next_version}" : "## #{tag}"
   print_lists(lists[tag], 'root')
-  puts unless index >= tags.length - 1
 end
