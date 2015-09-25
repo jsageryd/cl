@@ -7,6 +7,9 @@ Right before release of v1.0:
 
     ./cl.rb v1.0 > CHANGES.md
 
+## Demo
+[![CL demo](https://asciinema.org/a/afjqzwb2f55fw4i5l5xn1eryf.png)](https://asciinema.org/a/afjqzwb2f55fw4i5l5xn1eryf?autoplay=1)
+
 ## Acknowledgements
 * Albert Arvidsson <albert.arvidsson@gmail.com> for giving me the idea
 * Markus Läll <markus.l2ll@gmail.com> for providing valuable input
