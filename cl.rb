@@ -34,7 +34,7 @@ project = project_name
 next_version = ARGV.shift || 'Next'
 
 def commit_changelog_messages
-  log = 'git log --log-size --format="%H%n%b" --grep "^cl:"'
+  log = 'git log --log-size --format="%H%n%s%n%n%b" --grep "^cl:"'
   log_io = IO.popen(log)
   messages = {}
   begin
