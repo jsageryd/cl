@@ -85,7 +85,8 @@ tags.each do |tag|
 end
 
 def print_lists(lists_for_tag, commit, indent = 0)
-  lists_for_tag[commit].reverse.each do |c|
+  sorted_list = lists_for_tag[commit].sort_by { |c| CL_MESSAGES[c].to_s }
+  sorted_list.each do |c|
     if CL_MESSAGES.has_key?(c)
       puts "#{'  ' * indent}- #{CL_MESSAGES[c]}"
     end
